@@ -34,8 +34,8 @@ lerna-debug.log*
 # ===== 本地敏感配置 =====
 # 真实 application.yml 含数据库密码 / JWT 密钥，禁止进仓库；
 # 请用 application.yml.example 模板在本地自建一份（git 不追踪）。
-back/InterViewBacked/src/main/resources/application.yml
-back/InterViewBacked/src/main/resources/application-*.yml
+back/ai-write/src/main/resources/application.yml
+back/ai-write/src/main/resources/application-*.yml
 
 # ===== 系统文件 =====
 .DS_Store
