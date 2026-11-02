@@ -1,0 +1,308 @@
+/* ============ 全局动效 & 过渡 ============ */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(8px);
+  }
+  60% {
+    transform: scale(1.02) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(14px, -18px, 0) rotate(6deg);
+  }
+  66% {
+    transform: translate3d(-12px, 10px, 0) rotate(-5deg);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    background-position: 220% 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.42);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+@keyframes pulse-ring-pink {
+  0% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(236, 72, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+  }
+}
+
+/* 打字机光标闪烁（流式生成指示） */
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes wave-bar {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes roam {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(120%) scale(1.15);
+  }
+  50% {
+    transform: translateX(40%) scale(0.9);
+  }
+  75% {
+    transform: translateX(-90%) scale(1.1);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* ============ 动画工具类 ============ */
+.anim-up {
+  animation: fade-up var(--dur-base) var(--ease-out) both;
+}
+.anim-in {
+  animation: fade-in var(--dur-base) var(--ease-out) both;
+}
+.anim-pop {
+  animation: pop-in var(--dur-base) var(--ease-spring) both;
+}
+.anim-float {
+  animation: float-y 5s var(--ease-in-out) infinite;
+}
+
+.d1 {
+  animation-delay: 40ms;
+}
+.d2 {
+  animation-delay: 80ms;
+}
+.d3 {
+  animation-delay: 120ms;
+}
+.d4 {
+  animation-delay: 160ms;
+}
+.d5 {
+  animation-delay: 200ms;
+}
+.d6 {
+  animation-delay: 240ms;
+}
+.d7 {
+  animation-delay: 280ms;
+}
+.d8 {
+  animation-delay: 320ms;
+}
+
+/* ============ 路由 / 列表过渡 ============ */
+.view-enter-active {
+  animation: fade-up var(--dur-slow) var(--ease-out) both;
+}
+.view-leave-active {
+  transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out);
+  position: absolute;
+  inset: 0;
+}
+.view-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.list-enter-active {
+  transition: all var(--dur-base) var(--ease-out);
+}
+.list-leave-active {
+  transition: all 180ms var(--ease-out);
+  position: absolute;
+  width: 100%;
+}
+.list-enter-from {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+}
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.97);
+}
+.list-move {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.stagger-item {
+  animation: fade-up var(--dur-slow) var(--ease-out) both;
+}
+
+/* 弹窗 */
+.modal-enter-active {
+  animation: fade-in 180ms var(--ease-out);
+}
+.modal-leave-active {
+  animation: fade-in 160ms var(--ease-out) reverse;
+}
+.modal-enter-active .modal-panel {
+  animation: pop-in 300ms var(--ease-spring) both;
+}
+
+/* Toast */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 300ms var(--ease-spring);
+}
+.toast-enter-from {
+  opacity: 0;
+  transform: translateX(28px) scale(0.94);
+}
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(28px) scale(0.96);
+}
+.toast-move {
+  transition: transform 300ms var(--ease-out);
+}
+
+/* 抽屉 */
+.drawer-enter-active,
+.drawer-leave-active {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.drawer-enter-from,
+.drawer-leave-to {
+  transform: translateX(100%);
+}
+
+/* 折叠 */
+.fold-enter-active,
+.fold-leave-active {
+  transition: all var(--dur-base) var(--ease-out);
+  overflow: hidden;
+}
+.fold-enter-from,
+.fold-leave-to {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-4px);
+}
