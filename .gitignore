@@ -1,0 +1,42 @@
+# ===== 依赖库与构建产物（不进仓库）=====
+node_modules/
+dist/
+dist-ssr/
+target/
+build/
+coverage/
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ===== 日志 / 缓存 =====
+*.log
+*.tsbuildinfo
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===== 我的工作记忆（含内部信息，禁止上传）=====
+.workbuddy/
+
+# ===== 本地敏感配置 =====
+# 真实 application.yml 含数据库密码 / JWT 密钥，禁止进仓库；
+# 请用 application.yml.example 模板在本地自建一份（git 不追踪）。
+back/InterViewBacked/src/main/resources/application.yml
+back/InterViewBacked/src/main/resources/application-*.yml
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db
