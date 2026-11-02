@@ -65,7 +65,7 @@ novel:
     model: ${AI_MODEL:deepseek-chat}
     base-url: ${AI_BASE_URL:https://api.deepseek.com/v1}
     # API Key 只从环境变量取，禁止写进代码或提交进仓库
-    api-key: ${AI_API_KEY:sk-0a54417576434db79f86064e2c25fe3f}
+    api-key: ${AI_API_KEY:sk-45b6f8cab5254d59aa06fb302f643872}
     timeout-seconds: ${AI_TIMEOUT:180}
     max-retry: ${AI_MAX_RETRY:2}
 
